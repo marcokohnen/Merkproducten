@@ -9,7 +9,8 @@ public interface Bestelling extends Berekenbaar {
     void sorteer();
     void sorteerOpMerk();
     void sorteerOpVolume();
-    void toonPerMerk();
+    void toonPerMerk(String merk);
+    void toonParfums();
     void toonGoedkopeProducten();
-    void zoekDuursteProduct();
+    Product zoekDuursteProduct();
 }

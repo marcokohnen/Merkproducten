@@ -1,7 +1,9 @@
-package be.oak3.java8;
+package be.oak3.persistence;
 
 import be.oak3.model.Product;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestApp {
@@ -10,8 +12,8 @@ public class TestApp {
                 "Java Instructeur");
 
         Bestelling bestelling = new BestellingImpl();
-        List<Product> lijst = be.oak3.java8.Data.getData();
-
+        List<Product> lijst = new ArrayList<>();
+        lijst = Data.getData();
         for (Product artikel : lijst) {
             bestelling.voegProductToe(artikel);
         }
@@ -25,19 +27,19 @@ public class TestApp {
         System.out.println("\nLijst gesorteerd op volume: ");
         bestelling.sorteerOpVolume();
 
-        System.out.println("\nVan het merk Georgio Armani:");
-        bestelling.toonPerMerk("Georgio Armani");
-
-        System.out.println("\nAlle Parfums:");
-        bestelling.toonParfums();
-
-        System.out.println("\nAlle producten onder €50; ");
-        bestelling.toonGoedkopeProducten();
-
-        Product product = bestelling.zoekDuursteProduct();
-        System.out.println("\nDuurste product:\n" + product);
-
-        System.out.printf("\nTotale prijs: €%.2f", bestelling.totalePrijs());
+//        System.out.println("\nVan het merk Georgio Armani:");
+//        bestelling.toonPerMerk("Georgio Armani");
+//
+//        System.out.println("\nAlle Parfums:");
+//        bestelling.toonParfums();
+//
+//        System.out.println("\nAlle producten onder €50; ");
+//        bestelling.toonGoedkopeProducten();
+//
+//        Product product = bestelling.zoekDuursteProduct();
+//        System.out.println("\nDuurste product:\n" + product);
+//
+//        System.out.printf("\nTotale prijs: €%.2f", bestelling.totalePrijs());
 
     }
 }

@@ -8,13 +8,15 @@ public abstract class Product implements Comparable<Product> {
     private int productNummer, volume;
     private String merk, naam;
     private double prijs;
+    private static int productNr = 1000;
 
-    public Product(int productNummer, int volume, String merk, String naam, double prijs) {
-        this.productNummer = productNummer;
+    public Product(int productNummer, String merk, String naam, int volume, double prijs) {
+        this.productNummer = productNr;
         this.volume = volume;
         this.merk = merk;
         this.naam = naam;
         this.prijs = prijs;
+        productNr++;
     }
 
     public int getVolume() {
@@ -82,7 +84,7 @@ public abstract class Product implements Comparable<Product> {
 
     @Override
     public String toString() {
-        return "Merk:" + getMerk() + "\t" + "Naam: " + getNaam() + "Volume: " + getVolume() + "ml" +
+        return productNummer + " " + "Merk:" + getMerk() + "\t" + "Naam: " + getNaam() + "Volume: " + getVolume() + "ml" +
                 "\t" + "Prijs: " + getPrijs() + " Code: " + getProductCode();
     }
 }
