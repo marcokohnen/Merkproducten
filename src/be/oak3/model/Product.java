@@ -38,11 +38,7 @@ public abstract class Product implements Comparable<Product> {
     }
 
     public String getProductCode() {
-        StringBuilder code = new StringBuilder();
-        code.append(getMerk().replace(' ','_').substring(0,3).toUpperCase());
-        code.append(getNaam().replace(' ','_').substring(0,3).toUpperCase());
-        code.append(prijs);
-        return code.toString();
+        return (getMerk().substring(0,3).toUpperCase()+ getNaam().substring(0,3).toUpperCase() + getPrijs()).replace(' ', '-');
     }
 
     @Override

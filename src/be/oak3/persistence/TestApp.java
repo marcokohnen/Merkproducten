@@ -1,5 +1,7 @@
 package be.oak3.java8;
 
+import be.oak3.model.Product;
+
 import java.util.List;
 
 public class TestApp {
@@ -8,7 +10,7 @@ public class TestApp {
                 "Java Instructeur");
 
         Bestelling bestelling = new BestellingImpl();
-        List<Product> lijst = Data.getData();
+        List<Product> lijst = be.oak3.java8.Data.getData();
 
         for (Product artikel : lijst) {
             bestelling.voegProductToe(artikel);
