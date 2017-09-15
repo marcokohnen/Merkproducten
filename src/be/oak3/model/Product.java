@@ -40,7 +40,7 @@ public abstract class Product implements Comparable<Product> {
     }
 
     public String getProductCode() {
-        return (getMerk().substring(0,3).toUpperCase()+ getNaam().substring(0,3).toUpperCase() + getPrijs()).replace(' ', '-');
+        return (getMerk().substring(0,3).toUpperCase()+ getNaam().substring(0,3).toUpperCase() + getVolume()).replace(' ', '-');
     }
 
     @Override
@@ -71,7 +71,8 @@ public abstract class Product implements Comparable<Product> {
     }
 
     public static Comparator<Product> sorteerOpMerkNaam() {
-        return (p1, p2) -> p1.getMerk().compareTo(p2.getMerk());
+        return Comparator.comparing(Product::getMerk);
+//        return (p1, p2) -> p1.getMerk().compareTo(p2.getMerk());
     }
 
     @Override
@@ -84,7 +85,11 @@ public abstract class Product implements Comparable<Product> {
 
     @Override
     public String toString() {
-        return productNummer + " " + "Merk:" + getMerk() + "\t" + "Naam: " + getNaam() + "Volume: " + getVolume() + "ml" +
-                "\t" + "Prijs: " + getPrijs() + " Code: " + getProductCode();
+//        productNummer + " " + "Merk:" + getMerk() + "\t" + "Naam: " + getNaam() + "Volume: " + getVolume() + "ml" +
+//                "\t" + "Prijs: " + getPrijs() + " Code: " + getProductCode();
+//
+        return String.format("%d %s %-20s %10s %-24s %10s %3sml %8s %4.2f %5s %s",
+               getProductNummer(), "Merk:+", getMerk(), "Naam:", getNaam(), "Volume:", getVolume(),
+               "Prijs:", getPrijs(), " Code:", getProductCode());
     }
 }
