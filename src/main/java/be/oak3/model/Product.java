@@ -89,7 +89,7 @@ public abstract class Product implements Comparable<Product> {
 //                "\t" + "Prijs: " + getPrijs() + " Code: " + getProductCode();
 //
         return String.format("%d %s %-20s %10s %-24s %10s %3sml %8s %4.2f %5s %s",
-               getProductNummer(), "Merk:+", getMerk(), "Naam:", getNaam(), "Volume:", getVolume(),
+               getProductNummer(), "Merk:", getMerk(), "Naam:", getNaam(), "Volume:", getVolume(),
                "Prijs:", getPrijs(), " Code:", getProductCode());
     }
 }
