@@ -2,11 +2,15 @@ package be.oak3.persistence;
 
 import be.oak3.model.Product;
 
+import org.apache.logging.log4j.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestApp {
+    private static Logger logger = LogManager.getLogger();
+
     public static void main(String[] args) {
         System.out.printf("Oplossing van %s %s\n", "Kenneth Van Gijsel ",
                 "Java Instructeur");
@@ -37,9 +41,12 @@ public class TestApp {
           bestelling.toonGoedkopeProducten();
 
           Product product = bestelling.zoekDuursteProduct();
-          System.out.println("\nDuurste product:\n" + product);
+          System.out.println();
+          //System.out.println("\nDuurste product:\n" + product);
+         logger.debug("Duurste product:" + product);
 
-          System.out.printf("\nTotale prijs:  €%.2f", bestelling.totalePrijs());
+          //System.out.printf("\nTotale prijs:  €%.2f", bestelling.totalePrijs());
+         logger.debug("Totale prijs:  €%.2f", bestelling.totalePrijs());
 
     }
 }

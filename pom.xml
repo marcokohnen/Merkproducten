@@ -4,19 +4,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
+    <groupId>be.vdab.merkproducten</groupId>
     <artifactId>Merkproducten</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <packaging>jar</packaging>
 
     <properties>
         <jvm.version>1.8</jvm.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <log.level>WARN</log.level>
+        <log.level>DEBUG</log.level>
     </properties>
 
     <build>
+        <resources>
+            <resource>
+                <!-- resource locatie toevoegen zodat log4j2.xml wordt gevonden  -->
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -38,7 +45,17 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.9.0</version>
+        </dependency>
     </dependencies>
-
-
 </project>

@@ -1,7 +1,9 @@
 package be.oak3.model;
 
-import java.util.Arrays;
 import java.util.Comparator;
+
+import static org.apache.commons.lang3.StringUtils.*;
+
 
 public abstract class Product implements Comparable<Product> {
 
@@ -40,7 +42,9 @@ public abstract class Product implements Comparable<Product> {
     }
 
     public String getProductCode() {
-        return (getMerk().substring(0,3).toUpperCase()+ getNaam().substring(0,3).toUpperCase() + getVolume()).replace(' ', '-');
+        return join(left(getMerk(),3), left(getNaam(),3),volume).replace(' ', '_').toUpperCase();
+        //return  left(getMerk(),3) left(getNaam(),3) + getVolume().toUpperCase().replace(' ', '_');
+        //return (getMerk().substring(0,3).toUpperCase()+ getNaam().substring(0,3).toUpperCase() + getVolume()).replace(' ', '-');
     }
 
     @Override
