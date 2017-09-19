@@ -33,13 +33,16 @@ public class TestApp {
         bestelling.sorteerOpVolume();
 
           System.out.println("\nVan het merk Georgio Armani:");
-          bestelling.toonPerMerk("Georgio Armani");
+          //bestelling.toonPerMerk("Georgio Armani");
+          bestelling.lijstVanBepaaldMerk("Georgio Armani").stream().forEach(p -> logger.debug(p));
 
           System.out.println("\nAlle Parfums:");
-          bestelling.toonParfums();
+          //bestelling.toonParfums();
+          bestelling.lijstVanParfums().stream().forEach(p -> logger.debug(p));
 
           System.out.println("\nAlle producten onder €50; ");
-          bestelling.toonGoedkopeProducten();
+          //bestelling.toonGoedkopeProducten();
+          bestelling.lijstVanGoedkopeProducten().stream().forEach(p -> logger.debug(p));
 
           Product product = bestelling.zoekDuursteProduct();
           System.out.println();

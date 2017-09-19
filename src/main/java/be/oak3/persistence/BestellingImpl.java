@@ -7,14 +7,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.google.common.collect.Lists;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.*;
 
 
 public class BestellingImpl implements Bestelling {
 
     private List<Product> bestelling;
+
     private static Logger logger = LogManager.getLogger();
 
     public BestellingImpl() {
@@ -98,5 +101,26 @@ public class BestellingImpl implements Bestelling {
 //            .map(product -> product.getPrijs())
             .mapToDouble(product -> product.getPrijs())
             .sum();
+    }
+
+    @Override
+    public List<Product> lijstVanBepaaldMerk(String merk) {
+        return bestelling.stream()
+                .filter(p -> p.getMerk().equals(merk))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Product> lijstVanParfums() {
+        return bestelling.stream()
+                .filter(p -> p instanceof Parfum)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Product> lijstVanGoedkopeProducten() {
+        return bestelling.stream()
+                .filter(p -> p.getPrijs()<50)
+                .collect(Collectors.toList());
     }
 }
