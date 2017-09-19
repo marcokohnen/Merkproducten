@@ -1,12 +1,13 @@
 package be.oak3.persistence;
 
 import be.oak3.model.Product;
-
-import org.apache.logging.log4j.*;
-
-
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.logging.log4j.*;
+import com.google.common.collect.Lists.*;
+
+import static com.google.common.collect.Lists.newArrayList;
+
 
 public class TestApp {
     private static Logger logger = LogManager.getLogger();
@@ -16,7 +17,7 @@ public class TestApp {
                 "Java Instructeur");
 
         Bestelling bestelling = new BestellingImpl();
-        List<Product> lijst = new ArrayList<>();
+        List<Product> lijst;
         lijst = Data.getData();
         for (Product artikel : lijst) {
             bestelling.voegProductToe(artikel);

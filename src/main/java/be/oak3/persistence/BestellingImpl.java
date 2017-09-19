@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.google.common.collect.Lists;
 import org.apache.logging.log4j.*;
 
 
@@ -17,7 +18,7 @@ public class BestellingImpl implements Bestelling {
     private static Logger logger = LogManager.getLogger();
 
     public BestellingImpl() {
-        this.bestelling = new ArrayList<>();
+        this.bestelling = Lists.newArrayList();
     }
 
     @Override
